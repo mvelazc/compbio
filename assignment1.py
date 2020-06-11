@@ -56,19 +56,20 @@ def main():
     protein_string2_s = protein_string2[:protein_string2.index('*')]
     r_protein_string2_s = r_protein_string2[:r_protein_string2.index('*')]
 
-    print("Protein String [0]:\n" + protein_string + "\n\n")
+
+    print("Protein String [0]:\n" + protein_string.replace('*','') + "\n\n")
     print("Protein String [0] with stop codons:\n" + protein_string_s + "\n\n")
-    print("REVERSE String [0]:\n" + r_protein_string + "\n\n")
+    print("REVERSE String [0]:\n" + r_protein_string.replace('*','') + "\n\n")
     print("REVERSE String [0] with stop codons:\n" + r_protein_string_s + "\n")
     print("***********************************************************************************************************************\n")
-    print("Protein String [1]:\n" + protein_string1 + "\n\n")
+    print("Protein String [1]:\n" + protein_string1.replace('*','') + "\n\n")
     print("Protein String [1] with stop codons:\n" + protein_string1_s + "\n\n")
-    print("REVERSE String [1]:\n" + r_protein_string1 + "\n\n")
+    print("REVERSE String [1]:\n" + r_protein_string1.replace('*','') + "\n\n")
     print("REVERSE String [1] with stop codons:\n" + r_protein_string1_s + "\n")
     print("***********************************************************************************************************************\n")
-    print("Protein String [2]:\n" + protein_string2 + "\n\n")
+    print("Protein String [2]:\n" + protein_string2.replace('*','') + "\n\n")
     print("Protein String [2] with stop codons:\n" + protein_string2_s + "\n\n")
-    print("REVERSE String [2]:\n" + r_protein_string2 + "\n\n")
+    print("REVERSE String [2]:\n" + r_protein_string2.replace('*','') + "\n\n")
     print("REVERSE String [2] with stop codons:\n" + r_protein_string2_s + "\n")
 
 
