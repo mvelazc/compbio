@@ -40,12 +40,8 @@ def main():
     for i in range(0, len(rna)-(3+len(rna)%3), 3):
         protein_string += codon[rna[i:i+3]]
         r_protein_string += codon[reverse_rna[i:i+3]]
-
-    for i in range(0, len(rna1)-(3+len(rna1)%3), 3):
         protein_string1 += codon[rna1[i:i+3]]
         r_protein_string1 += codon[reverse_rna1[i:i+3]]
-
-    for i in range(0, len(rna2)-(3+len(rna2)%3), 3):
         protein_string2 += codon[rna2[i:i+3]]
         r_protein_string2 += codon[reverse_rna2[i:i+3]]
 
@@ -59,16 +55,19 @@ def main():
 
     print("Protein String [0]:\n" + protein_string.replace('*','') + "\n\n")
     print("Protein String [0] with stop codons:\n" + protein_string_s + "\n\n")
+    print("***********************************************************************************************************************\n")
     print("REVERSE String [0]:\n" + r_protein_string.replace('*','') + "\n\n")
     print("REVERSE String [0] with stop codons:\n" + r_protein_string_s + "\n")
     print("***********************************************************************************************************************\n")
     print("Protein String [1]:\n" + protein_string1.replace('*','') + "\n\n")
     print("Protein String [1] with stop codons:\n" + protein_string1_s + "\n\n")
+    print("***********************************************************************************************************************\n")
     print("REVERSE String [1]:\n" + r_protein_string1.replace('*','') + "\n\n")
     print("REVERSE String [1] with stop codons:\n" + r_protein_string1_s + "\n")
     print("***********************************************************************************************************************\n")
     print("Protein String [2]:\n" + protein_string2.replace('*','') + "\n\n")
     print("Protein String [2] with stop codons:\n" + protein_string2_s + "\n\n")
+    print("***********************************************************************************************************************\n")
     print("REVERSE String [2]:\n" + r_protein_string2.replace('*','') + "\n\n")
     print("REVERSE String [2] with stop codons:\n" + r_protein_string2_s + "\n")
 
