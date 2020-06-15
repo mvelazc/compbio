@@ -62,10 +62,10 @@ def main():
         rc_protein_string2 += codon[complement2[i:i+3]]
 
     protein_string_s = protein_string[:protein_string.index('*')]
-    rc_protein_string_s = rc_protein_string[:rc_protein_string.index('*')]
     protein_string1_s = protein_string1[:protein_string1.index('*')]
-    rc_protein_string1_s = rc_protein_string1[:rc_protein_string1.index('*')]
     protein_string2_s = protein_string2[:protein_string2.index('*')]
+    rc_protein_string_s = rc_protein_string[:rc_protein_string.index('*')]
+    rc_protein_string1_s = rc_protein_string1[:rc_protein_string1.index('*')]
     rc_protein_string2_s = rc_protein_string2[:rc_protein_string2.index('*')]
 
 
