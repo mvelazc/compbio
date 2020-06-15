@@ -30,46 +30,62 @@ def main():
     rna2 = rna[2:]
     reverse_rna2 = rna[::-1]
     reverse_rna2 = reverse_rna2[2:]
-    r_protein_string = ""
+    rc_protein_string = ""
     protein_string = ""
-    r_protein_string1 = ""
+    rc_protein_string1 = ""
     protein_string1 = ""
     protein_string2 = ""
-    r_protein_string2 = ""
+    rc_protein_string2 = ""
+
+    complement = ""
+
+    for i in range(len(rna)):
+        if rna[i] == "A":
+            complement += "U"
+        if rna[i] == "U":
+            complement += "A"
+        if rna[i] == "G":
+            complement += "C"
+        if rna[i] == "C":
+            complement += "G"
+
+    complement = complement[::-1]
+    complement1 = complement[1:]
+    complement2 = complement[2:]
 
     for i in range(0, len(rna)-(3+len(rna)%3), 3):
         protein_string += codon[rna[i:i+3]]
-        r_protein_string += codon[reverse_rna[i:i+3]]
+        rc_protein_string += codon[complement[i:i+3]]
         protein_string1 += codon[rna1[i:i+3]]
-        r_protein_string1 += codon[reverse_rna1[i:i+3]]
+        rc_protein_string1 += codon[complement1[i:i+3]]
         protein_string2 += codon[rna2[i:i+3]]
-        r_protein_string2 += codon[reverse_rna2[i:i+3]]
+        rc_protein_string2 += codon[complement2[i:i+3]]
 
     protein_string_s = protein_string[:protein_string.index('*')]
-    r_protein_string_s = r_protein_string[:r_protein_string.index('*')]
+    rc_protein_string_s = rc_protein_string[:rc_protein_string.index('*')]
     protein_string1_s = protein_string1[:protein_string1.index('*')]
-    r_protein_string1_s = r_protein_string1[:r_protein_string1.index('*')]
+    rc_protein_string1_s = rc_protein_string1[:rc_protein_string1.index('*')]
     protein_string2_s = protein_string2[:protein_string2.index('*')]
-    r_protein_string2_s = r_protein_string2[:r_protein_string2.index('*')]
+    rc_protein_string2_s = rc_protein_string2[:rc_protein_string2.index('*')]
 
 
     print("Protein String [0]:\n" + protein_string.replace('*','') + "\n\n")
     print("Protein String [0] with stop codons:\n" + protein_string_s + "\n\n")
     print("***********************************************************************************************************************\n")
-    print("REVERSE String [0]:\n" + r_protein_string.replace('*','') + "\n\n")
-    print("REVERSE String [0] with stop codons:\n" + r_protein_string_s + "\n")
-    print("***********************************************************************************************************************\n")
     print("Protein String [1]:\n" + protein_string1.replace('*','') + "\n\n")
     print("Protein String [1] with stop codons:\n" + protein_string1_s + "\n\n")
-    print("***********************************************************************************************************************\n")
-    print("REVERSE String [1]:\n" + r_protein_string1.replace('*','') + "\n\n")
-    print("REVERSE String [1] with stop codons:\n" + r_protein_string1_s + "\n")
     print("***********************************************************************************************************************\n")
     print("Protein String [2]:\n" + protein_string2.replace('*','') + "\n\n")
     print("Protein String [2] with stop codons:\n" + protein_string2_s + "\n\n")
     print("***********************************************************************************************************************\n")
-    print("REVERSE String [2]:\n" + r_protein_string2.replace('*','') + "\n\n")
-    print("REVERSE String [2] with stop codons:\n" + r_protein_string2_s + "\n")
+    print("REVERSE COMPLEMENT String [0]:\n" + rc_protein_string.replace('*','') + "\n\n")
+    print("REVERSE COMPLEMENT String [0] with stop codons:\n" + rc_protein_string_s + "\n")
+    print("***********************************************************************************************************************\n")
+    print("REVERSE COMPLEMENT String [1]:\n" + rc_protein_string1.replace('*','') + "\n\n")
+    print("REVERSE COMPLEMENT String [1] with stop codons:\n" + rc_protein_string1_s + "\n")
+    print("***********************************************************************************************************************\n")
+    print("REVERSE COMPLEMENT String [2]:\n" + rc_protein_string2.replace('*','') + "\n\n")
+    print("REVERSE COMPLEMENT String [2] with stop codons:\n" + rc_protein_string2_s + "\n")
 
 
 
