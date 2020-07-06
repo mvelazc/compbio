@@ -1,7 +1,6 @@
 from Bio import Phylo
 from Bio import AlignIO
 from Bio.Phylo.TreeConstruction import DistanceCalculator
-from Bio.Phylo.TreeConstruction import DistanceTreeConstructor
 
 def closest_relation(table):
     min_cell = float("inf")
