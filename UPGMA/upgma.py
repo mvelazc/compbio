@@ -1,5 +1,6 @@
 from Bio import Phylo
 from Bio import AlignIO
+from difflib import SequenceMatcher
 from Bio.Phylo.TreeConstruction import DistanceCalculator
 
 def closest_relation(table):
@@ -41,17 +42,34 @@ def UPGMA(table, labels):
         update_labels(labels, x, y)
     return labels[0]
 
-def main():
-    alignment = AlignIO.read(open("protein.fasta"), "fasta")
-    calculator = DistanceCalculator('identity')
-    dm = calculator.get_distance(alignment)
-    distanceMatrix = dm.matrix
+def pairwise(seq1, seq2):
+    score = 0
+    max_score = 0
+    score = sum(l1 == l2 for l1, l2 in zip(seq1, seq2))
+    max_score = len(seq1)
+    if max_score == 0:
+        return 1
+    return 1 - (score * 1.0 / max_score)
 
-    for index in range(len(distanceMatrix)):
-        distanceMatrix[index] = distanceMatrix[index][:-1]
+
+def main():
+    sequences = []
+    matrix = []
+    names = []
+
+    with open('protein.txt') as file:
+        for line in file:
+            sequences.append(line.split())
+            matrix.append([])
+
+    for index in range(len(sequences)):
+        for j in range(len(sequences)):
+            if j > index:
+                matrix[j].append(pairwise(sequences[index][1], sequences[j][1]))
+        names.append(sequences[index][0])
 
     file = open('simple.dnd', 'w')
-    file.write(UPGMA(distanceMatrix, dm.names))
+    file.write(UPGMA(matrix, names))
     file.close()
 
     tree = Phylo.read('simple.dnd', 'newick')
